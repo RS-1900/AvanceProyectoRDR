@@ -1,0 +1,122 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+body {
+  background: #000;
+  color: #fff;
+}
+
+img {
+  cursor: pointer;
+}
+a {
+  text-decoration: none;
+  color: #fff;
+}
+.header {
+  min-height: 100vh;
+  width: 100%;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url(Imagenes/abstract-luxury-gradient-blue-background-smooth-dark-blue-with-black-vignette-studio-banner.jpg);
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+.form-input {
+  display: flex;
+  align-items: center;
+}
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 11%;
+}
+.logo {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+.language-img {
+  width: 18px;
+  margin-right: 5px;
+}
+.arrow {
+  width: 10px;
+  margin-left: 10px;
+}
+nav div {
+  display: flex;
+  align-items: center;
+}
+nav div a {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 15px;
+  background: rgb(23, 107, 232);
+  height: 35px;
+  padding: 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+nav div a:first-child {
+  background: #000;
+  border: 1px solid #666;
+}
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  padding-top: 5%;
+}
+.container h1 {
+  font-size: 3.8rem;
+  margin-bottom: 20px;
+  letter-spacing: -3px;
+}
+.container h3 {
+  font-weight: 500;
+  margin-bottom: 30px;
+}
+.container p {
+  font-size: 16px;
+  line-height: 2vw;
+  margin-bottom: 20px;
+}
+.container div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.start-input {
+  width: 400px;
+  height: 50px;
+  padding: 10px;
+  border: 1px solid #02ff02;
+  border-radius: 4px;
+  background-color: rgba(135, 206, 235, 0.3);
+  outline: 0;
+  color: #fff;
+  padding-top: 20px;
+  font-size: 16px;
+}
+.start-input::placeholder {
+  color: #fff;
+}
+.start-btn {
+  width: 200px;
+  height: 50px;
+  border: 0;
+  background-color: rgb(28, 230, 227);
+  color: #fff;
+  font-size: 18px;
+  border-radius: 4px;
+  margin-left: 10px;
+  cursor: pointer;
+}
