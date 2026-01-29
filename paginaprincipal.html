@@ -1,108 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Megumovies</title>
-  <link rel="stylesheet" href="Css1.css">
+  <link rel="stylesheet" href="ccs.css">
 </head>
 
 <body>
 
-<header class="header">
-  <nav class="nav">
+  <header class="header">
+    <nav class="nav">
+      <div class="left-cont">
+        <img src="assets/Imagenes/meowgumi.png" class="logo" alt="Megumovies">
+      </div>
 
-    <div class="left-cont">
-      <img src="assets/Imagenes/meowgumi.png" class="logo" alt="Logo">
+      <ul class="main-nav">
+        <li class="nav-item active"><a href="#">Inicio</a></li>
+        <li class="nav-item"><a href="#">Series</a></li>
+        <li class="nav-item"><a href="#">Anime</a></li>
+        <li class="nav-item"><a href="#">Mi Lista</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="contenedor-principal">
+
+    <h2 class="titulo-seccion">Lo mas reciente</h2>
+
+    <div id="contenedor-catalogo">
+
+                          
     </div>
 
-    <ul class="main-nav">
-      <li class="nav-item active"><a href="paginaprincipal.html">Inicio</a></li>
-      <li class="nav-item"><a href="paginaprincipal.html">Película</a></li>
-      <li class="nav-item"><a href="serie.html">Serie</a></li>
-      <li class="nav-item"><a href="Anime.html">Anime</a></li>
-      <li class="nav-item"><a href="#">Mi Lista</a></li>
-      <li class="nav-item"><a href="pagos.html">Planes de Pago</a></li>      
+  </main>
 
-    </ul>
-
-    <div class="right-cont">
-
-      <svg width="22" height="22" viewBox="0 0 24 24" class="icon">
-        <path fill="currentColor"
-          d="M10 2a8 8 0 105.293 14.293l4.707 4.707 1.414-1.414-4.707-4.707A8 8 0 0010 2z"/>
-      </svg>
-
-      <svg width="22" height="22" viewBox="0 0 24 24" class="icon">
-        <path fill="currentColor"
-          d="M12 22a2 2 0 002-2h-4a2 2 0 002 2zm6-6V11a6 6 0 10-12 0v5L4 18v1h16v-1l-2-2z"/>
-      </svg>
-
-      <img
-        class="avatar"
-        src="https://bolt-gcdn.sc-cdn.net/3/CEEnA1IPhu5yNPlYCuk9i?bo=EhgaABoAMgF9OgEEQgYIrufxgQZIAlASYAE%3D&uc=18"
-        alt="Perfil"
-      >
-    </div>
-
-  </nav>
-</header>
-
-<section class="movies-cont container">
-
-  <div class="movie-row">
-    <h2 class="row-title">Peliculas</h2>
-    
-    <div class="movie-list">
-      <img src="https://image.tmdb.org/t/p/w300/8cdWjvZQUExUUTzyp4t6EDMubfO.jpg" class="movie-card">
-      <img src="https://image.tmdb.org/t/p/w300/74xTEgt7R36Fpooo50r9T25onhq.jpg" class="movie-card">
-      <img src="https://www.aceprensa.com/wp-content/uploads/2020/02/Sonic.-La-peli%CC%81cula.jpg" class="movie-card">
-      <img src="https://image.tmdb.org/t/p/w300/pmAv14TPE2vKMIRrVeCd1Ll7K94.jpg" class="movie-card">
-      <img src="https://image.tmdb.org/t/p/w300/9Gtg2DzBhmYamXBS1hKAhiwbBKS.jpg" class="movie-card">
-      <img src="https://i.pinimg.com/736x/f6/bb/32/f6bb3292e74b613568912e19c7a794a3.jpg" class="movie-card">
-      <img src="https://images3.memedroid.com/images/UPLOADED481/6616f5c04fc56.jpeg" class="movie-card">
-    </div>
-  </div>
-
-  <div class="movie-row">
-    <h2 class="row-title">Anime</h2>
-
-    <div class="movie-list">
-      <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiFTY_BbFaTHmU0QquzIi23m_MBRCPbgMczvmhFbN5XRy2avg4MkMvb0j5wmll2E4lnxMU_zV8yTNxgdNQnN_-M4zbfWg7aLxpIhhtckqAtDqO5UX_y_O-mPr3nUMnTUeeePfY99PHbCxecPnAKx1X2BFA3pcoE7HZCmE6WiQykux64p41qyL4u/s700/season-2.webp" class="movie-card">
-      <img src="https://preview.redd.it/the-jujutsu-kaisen-season-3-part-i-poster-looks-goofy-v0-pny26a834f8g1.jpeg?auto=webp&s=81454e302a74d156b617f31f76cca1261cdc38cf" class="movie-card">
-      <img src="https://ramenparados.com/wp-content/uploads/2024/12/One-Piece-anime-Egghead-1-1-724x1024.jpg" class="movie-card">
-      <img src="https://i.imgur.com/C1cpb58.png" class="movie-card">
-      <img src="https://i.ebayimg.com/images/g/6KIAAOSwB59gZ-k4/s-l1200.jpg" class="movie-card">
-      <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEghZyRgBuU-JGtzHPSwXE9L4JaFZCQmiDz5KxQXpYOiupPefv4nuwyZkvoYvfUV6JWi6HEi-bRQrAOKjREK89QldslU0pcdftfm8UZ7-EaWvU43LDvSK_vDCM-3Tsd5A9b-j2ldgAI6OSIEiU7snFPpQQ3cUSrhuWqDRLZiK6GU5xP7xEL7PUSdJQ/w452-h640/the-case-book-of-arne-anime-promocional.jpeg" class="movie-card">
-      <img src="https://i0.wp.com/multianime.com.mx/wp-content/uploads/2020/08/1_dr-stone-anime-teaser-poster-trailer-visual-key-HD.jpg?resize=788%2C1116&ssl=1" class="movie-card">
-    </div>
-  </div>
-
-    <div class="Serie">
-    <h2 class="row-title">Serie</h2>
-
-    <div class="movie-list">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2PAqhNzQQ7wcE93pJaMONA-jCQfEvjINH4w&s" class="movie-card">
-      <img src="https://rubricadigital.es/wp-content/uploads/2022/07/036a6078394009.5ca3aabf27fe8-685x1024.jpg" class="movie-card">
-      <img src="https://oyster.ignimgs.com/wordpress/stg.ign.com/2015/08/FLA2_KeyArt.jpg" class="movie-card">
-      <img src="https://e01-elmundo.uecdn.es/assets/multimedia/imagenes/2026/01/22/17690719083434.png" class="movie-card">
-      <img src="https://pbs.twimg.com/media/GSKTVNeWUAAQQlR.jpg" class="movie-card">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCubkKVS0PjQU4h2zqRAJ5aoXbr5F9COsg9A&s" class="movie-card">
-      <img src="https://www.mubis.es/media/users/2514/117415/primeros-carteles-promocionales-para-la-serie-de-fox-scream-queens-l_cover.jpg" class="movie-card">
-    </div>
-  </div>
-
-
-
-
-
-
-
-
-
-
-
-
-</section>
 </body>
 </html>
