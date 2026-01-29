@@ -30,10 +30,9 @@ img {
 .header-hero {
   min-height: 100vh;
   display: flex;
-  justify-content: center;   
-  align-items: center;       
+  justify-content: center;
+  align-items: center;
 }
-
 
 nav, .nav {
   display: flex;
@@ -68,6 +67,7 @@ nav, .nav {
   font-weight: bold;
 }
 
+/* BOTONES NAV */
 nav div a {
   display: inline-flex;
   align-items: center;
@@ -95,12 +95,13 @@ nav div a:first-child {
   margin-left: 10px;
 }
 
+/* ================= HERO ================= */
+
 .container {
   width: 90%;
   max-width: 1200px;
-  margin: 0 auto;
-  text-align: center; 
-  margin-top: 130px;       
+  margin: 130px auto 0;
+  text-align: center;
 }
 
 .container h1 {
@@ -120,14 +121,6 @@ nav div a:first-child {
   margin-bottom: 20px;
 }
 
-.container div {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
 .form-input {
   display: flex;
   justify-content: center;
@@ -136,12 +129,11 @@ nav div a:first-child {
   margin-top: 40px;
 }
 
-
 .start-input {
   width: 400px;
   max-width: 100%;
   height: 50px;
-  padding: 20px 10px 0 10px;
+  padding: 20px 10px 0;
   border: 1px solid #02ff02;
   border-radius: 4px;
   background-color: rgba(135, 206, 235, 0.3);
@@ -170,83 +162,17 @@ nav div a:first-child {
   background-color: rgb(20, 200, 197);
 }
 
-.movie-row {
-  margin: 50px 0;
-  padding: 0 6%;
+
+#contenedor-principal {
+  padding: 40px 5%;
 }
 
-.row-title {
-  font-size: 24px;
-  margin-bottom: 16px;
-}
-
-.movie-list,
-.serie-list,
-.anime-list {
-  display: flex;
+#contenedor-catalogo {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 20px;
-  overflow-x: auto;
-  justify-content: flex-start;
-  padding: 10px 0;
 }
 
-.movie-list::-webkit-scrollbar,
-.serie-list::-webkit-scrollbar,
-.anime-list::-webkit-scrollbar {
-  display: none;
-}
-
-.movie-item,
-.serie-item,
-.anime-item {
-  width: 220px; 
-  flex-shrink: 0;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-}
-
-.movie-item:hover,
-.serie-item:hover,
-.anime-item:hover {
-  transform: scale(1.1);
-  z-index: 5;
-}
-
-.movie-item img,
-.serie-item img,
-.anime-item img {
-  width: 100%;
-  height: 330px;
-  object-fit: cover;
-  border-radius: 14px;
-}
-
-.movie-info,
-.serie-info,
-.anime-info {
-  margin-top: 8px;
-  text-align: center;
-}
-
-.movie-info h3,
-.serie-info h3,
-.anime-info h3 {
-  font-size: 15px;
-}
-
-.movie-info p,
-.serie-info p,
-.anime-info p {
-  font-size: 13px;
-  opacity: 0.8;
-}
-
-@media (max-width: 768px) {
-  .main-nav {
-    display: none;
-  }
-
-  }
 @media (max-width: 768px) {
   .main-nav {
     display: none;
@@ -259,37 +185,25 @@ nav div a:first-child {
 
   .container p {
     font-size: 16px;
-    line-height: 1.5;
   }
+}
+#contenedor-catalogo {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  gap: 20px;
+}
 
-  .start-input {
-  width: 400px;
-  height: 50px;
-  padding: 10px;
-  border: 1px solid #02ff02;
-  border-radius: 4px;
-  background-color: rgba(135, 206, 235, 0.3);
-  outline: 0;
-  color: #fff;
-  padding-top: 20px;
-  font-size: 16px;
-  }
-
-  .start-btn {
-  width: 200px;
-  height: 50px;
-  border: 0;
-  background-color: rgb(28, 230, 227);
-  color: #fff;
-  font-size: 18px;
-  border-radius: 4px;
-  margin-left: 10px;
+.card {
+  width: 100%;
+  height: 300px;          
+  background: #111;
+  border-radius: 10px;
   cursor: pointer;
-  }
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
 
-  .movie-item,
-  .serie-item,
-  .anime-item {
-    width: 180px;
-  }
+.card:hover {
+  transform: scale(1.06);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.65);
+  z-index: 2;
 }
