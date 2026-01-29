@@ -207,3 +207,193 @@ nav div a:first-child {
   box-shadow: 0 12px 30px rgba(0,0,0,0.65);
   z-index: 2;
 }
+
+
+/*CSS PARA EL INICIO DE SESION Y REGISTRO DE USUARIO*/
+
+
+
+
+/*index.html*/
+
+.contenedorIDX {
+  width: 90%;
+  max-width: 1200px;
+  margin: 130px auto 0;
+  text-align: center;
+}
+
+.contenedorIDX h1 {
+  font-size: 3.8rem;
+  margin-bottom: 20px;
+  letter-spacing: -3px;
+}
+
+.contenedorIDX h3 {
+  font-weight: 500;
+  margin-bottom: 30px;
+}
+
+.contenedorIDX p {
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.form-input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 40px;
+}
+
+
+.login-btn {
+  width: 400px;
+  max-width: 100%;
+  height: 50px;
+  padding: 20px 10px 0;
+  border-radius: 4px;
+  background-color: rgba(135, 206, 235, 0.3);
+  outline: 0;
+  color: #fff;
+  font-size: 16px;
+}
+
+.login-btn:placeholder {
+  color: #fff;
+}
+
+.login-btn {
+  text-align: center;
+  width: 200px;
+  height: 50px;
+  border: 0;
+  background-color: rgb(28, 230, 227);
+  color: #fff;
+  font-size: 18px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.login-btn:hover {
+  background-color: rgb(20, 200, 197);
+}
+
+/*contenedor de usuario css*/
+
+.contenedorRGST {
+  width: 90%;
+  max-width: 1200px;
+  margin: 130px auto 0;
+  text-align: center;
+}
+
+.contenedorRGST h1 {
+  font-size: 3.8rem;
+  margin-bottom: 20px;
+  letter-spacing: -3px;
+}
+
+.contenedorRGST h3 {
+  font-weight: 500;
+  margin-bottom: 30px;
+}
+
+.contenedorRGST p {
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.form-input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 40px;
+}
+
+
+.login-btn {
+  width: 400px;
+  max-width: 100%;
+  height: 50px;
+  padding: 20px 10px 0;
+  border-radius: 4px;
+  background-color: rgba(135, 206, 235, 0.3);
+  outline: 0;
+  color: #fff;
+  font-size: 16px;
+}
+
+.login-btn:placeholder {
+  color: #fff;
+}
+
+.login-btn {
+  text-align: center;
+  width: 200px;
+  height: 50px;
+  border: 0;
+  background-color: rgb(28, 230, 227);
+  color: #fff;
+  font-size: 18px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.login-btn:hover {
+  background-color: rgb(20, 200, 197);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*CREAR USUARIO CSS*/
+.crearUsr-btn {
+  width: 400px;
+  max-width: 100%;
+  height: 50px;
+  padding: 20px 10px 0;
+  border-radius: 4px;
+  background-color: rgba(135, 206, 235, 0.3);
+  outline: 0;
+  color: #fff;
+  font-size: 16px;
+}
+
+.crearUsr-btn:placeholder {
+  color: #fff;
+}
+
+.crearUsr-btn {
+  text-align: center;
+  width: 200px;
+  height: 50px;
+  border: 0;
+  background-color: rgb(28, 230, 227);
+  color: #fff;
+  font-size: 18px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.crearUsr-btn:hover {
+  background-color: rgb(20, 200, 197);
+}
+

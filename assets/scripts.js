@@ -1,3 +1,11 @@
+class usuario{
+    constructor(username, password){
+        this.username = username;
+        this.password = password;
+    }
+}
+
+
 class capitulo {
     constructor(titulo,descripcion,duracion,miniatura){
         this.titulo = titulo;
