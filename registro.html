@@ -12,27 +12,41 @@
       <div class="left-cont">
         <img src="assets/Imagenes/meowgumi.png" class="logo" alt="Megumovies">
       </div>
-
+      <div>
+        <a href="#"><img src="assets/Imagenes/language.png" class="language-img">Español <img src="assets/Imagenes/down-arrow.png"
+            class="arrow"></a>
+        <a href="inicioSesion.html">Iniciar Sesión</a>
+      </div>
     </nav>
   </header>
 
     <div class="contenedorRGST">
-        <h4>Rellene los campos para crear un usuario</h4>
-        <label for="username"><h1>Nombre de usuario:</h1></label>
+    <h4>Rellene los campos para crear un usuario</h4>
+
+    <form id="registroForm">
+        <label>
+            <h1>Nombre de usuario:</h1>
+        </label>
         <input type="text" placeholder="Ingresa usuario" class="username" required>
 
         <br>
-    
-        <label for="password"><h1>Contraseña:</h1></label>
+
+        <label>
+            <h1>Contraseña:</h1>
+        </label>
         <input type="password" placeholder="Ingresa contraseña" class="password" required>
 
         <br><br>
 
         <button type="submit" class="crearUsr-btn">Crear cuenta</button>
-        <br><br>
+    </form>
 
-        <p><a href="inicioSesion.html">Ya tienes una cuenta? Inicia sesión aqui</a> </p>
+    <br>
+    <p><a href="inicioSesion.html">¿Ya tienes una cuenta? Inicia sesión aquí</a></p>
+</div>
 
-    </div>
+
+<script src="scripts.js"></script>
+
 </body>
 </html>
