@@ -50,6 +50,7 @@ nav, .nav {
   height: 60px;
   width: auto;
   object-fit: cover;
+  display: flex;
 }
 
 .main-nav {
@@ -60,6 +61,7 @@ nav, .nav {
 .nav-item {
   margin-right: 20px;
   opacity: 0.8;
+  display: flex;
 }
 
 .nav-item.active {
@@ -83,6 +85,44 @@ nav div a {
 nav div a:first-child {
   background: #000;
   border: 1px solid #666;
+}
+
+@media (max-width: 768px) {
+  nav div a {
+    padding: 8px 10px;
+    height: auto;
+    font-size: 12px;
+  }
+  .main-nav {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  .nav-item {
+    margin-right: 0;
+    text-align: center;
+  }
+
+  .logout-btn {
+    width: 100%;
+  }
+
+  .main-nav {
+    display: none;
+  }
+
+  .container h1 {
+    font-size: 2.5rem;
+    letter-spacing: -1px;
+  }
+
+  .container p {
+    font-size: 16px;
+  }
+
 }
 
 .language-img {
@@ -173,20 +213,7 @@ nav div a:first-child {
   gap: 20px;
 }
 
-@media (max-width: 768px) {
-  .main-nav {
-    display: none;
-  }
 
-  .container h1 {
-    font-size: 2.5rem;
-    letter-spacing: -1px;
-  }
-
-  .container p {
-    font-size: 16px;
-  }
-}
 #contenedor-catalogo {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
@@ -461,13 +488,17 @@ header.black-bg{
 .header-brand{
     max-width: 110px;
 }
-.main-nav{
-    list-style: none;
-    display: inline-flex;
-    flex-direction: row;
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 .nav-item{
     margin-right: 20px;
+    white-space: nowrap;
     color: #e5e5e5;
     opacity: .83;
 }
@@ -612,13 +643,11 @@ header.black-bg{
 }
 
 @media (max-width:767px) {
-    .main-nav{
-        display: none;
-    }
     .banner__overview, .banner__title{
         max-width: 100%;
     }
 }
+
 
 /* planes de pago */
 .pricing {
@@ -789,4 +818,5 @@ header.black-bg{
   border-radius: 4px;
   cursor: pointer;
   transition: background 0.3s;
+  display: flex;
 }

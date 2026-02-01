@@ -27,7 +27,6 @@ class contenido {
         this.calcularDuracion();
     }
 }
-
 class gestorDeContenido {
     constructor(){
         this.contenidos = [];
