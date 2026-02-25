@@ -212,8 +212,6 @@ nav div a:first-child {
 /*CSS PARA EL INICIO DE SESION Y REGISTRO DE USUARIO*/
 
 
-
-
 /*index.html*/
 
 .contenedorIDX {
@@ -350,6 +348,7 @@ nav div a:first-child {
   background-color: rgb(20, 200, 197);
 }
 
+<<<<<<< Updated upstream:ccs.css
 
 
 
@@ -363,6 +362,8 @@ nav div a:first-child {
 
 
 
+=======
+>>>>>>> Stashed changes:styles.css
 /*CREAR USUARIO CSS*/
 .crearUsr-btn {
   width: 400px;
@@ -740,7 +741,6 @@ header.black-bg{
   font-size: 16px;
 }
 
-
 .crearUsr-btn {
   width: 200px;
   height: 50px;
@@ -751,4 +751,157 @@ header.black-bg{
   border-radius: 4px;
   cursor: pointer;
   transition: background 0.3s;
+<<<<<<< Updated upstream:ccs.css
+=======
+}
+
+.logout-btn {
+  width: auto;
+  height: 30px;
+  border: 0;
+  background-color: rgb(28, 230, 227);
+  color: #fff;
+  font-size: 18px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s;
+  display: flex;
+}
+/* CONTENEDOR DE PELÍCULAS CENTRADO */
+.movies-container {
+    width: 100%;
+    padding: 40px 60px;
+    display: flex;
+    justify-content: center; 
+    flex-wrap: wrap;
+    gap: 25px;
+}
+
+.movie-card {
+    width: 220px;
+    background: #111;
+    border-radius: 14px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.movie-card img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+}
+
+.movie-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 35px rgba(0,0,0,0.7);
+}
+
+/* CONTENEDOR DE BOTONES */
+.filter-container {
+    display: flex;
+    justify-content: center; 
+    gap: 15px;
+    margin: 30px 0;
+}
+
+.filter-btn {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: white;
+    padding: 8px 18px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+    background: rgba(255,255,255,0.2);
+    transform: translateY(-2px);
+}
+
+.filter-btn.active {
+    background: #0970e5; 
+    border-color: #0970e5;
+    color: white;
+    box-shadow: 0 5px 15px #0970e5(229,9,20,0.5);
+}
+
+/* OVERLAY FONDO */
+#detalle-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* CUANDO ESTÁ ACTIVO */
+#detalle-overlay.activo {
+    display: flex;
+}
+
+/* CONTENEDOR INTERNO */
+.detalle-contenido {
+    background: #111;
+    width: 80%;
+    max-width: 900px;
+    border-radius: 15px;
+    padding: 30px;
+    display: flex;
+    gap: 30px;
+    position: relative;
+    animation: aparecer 0.3s ease;
+}
+
+/* IMAGEN */
+.detalle-img {
+    width: 250px;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+/* INFO */
+.detalle-info {
+    flex: 1;
+    color: white;
+}
+
+.detalle-info h1 {
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+.detalle-info p {
+    color: #ccc;
+    line-height: 1.6;
+}
+
+/* BOTÓN CERRAR */
+.cerrar {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+/* ANIMACIÓN */
+@keyframes aparecer {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+>>>>>>> Stashed changes:styles.css
 }
