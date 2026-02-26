@@ -807,7 +807,6 @@ header.black-bg{
 }
 
 
-
 .logout-btn {
   width: auto;
   height: 30px;
@@ -819,4 +818,147 @@ header.black-bg{
   cursor: pointer;
   transition: background 0.3s;
   display: flex;
+}
+
+.filter-container {
+    display: flex;
+    justify-content: center;  
+    align-items: center;
+    gap: 20px;
+    margin: 40px 0;
+    width: 100%;
+}
+
+.filter-btn {
+    background: #222;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: 0.3s ease;
+    font-size: 15px;
+}
+
+.filter-btn:hover {
+    background: #444;
+    transform: translateY(-3px);
+}
+
+.filter-btn.active {
+    background: rgb(4, 44, 226);
+}
+
+/* GRID CENTRADO*/
+
+#movies {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 220px);
+    justify-content: center;
+    gap: 30px;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.movie-card {
+    background: #111;
+    padding: 15px;
+    border-radius: 12px;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.movie-card:hover {
+    transform: scale(1.05);
+}
+
+.movie-card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.movie-card h3 {
+    font-size: 18px;
+}
+
+/* OVERLAY                  */
+
+#detalle-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+#detalle-overlay.activo {
+    display: flex;
+}
+
+.detalle-contenido {
+    background: #111;
+    width: 80%;
+    max-width: 900px;
+    border-radius: 15px;
+    padding: 30px;
+    display: flex;
+    gap: 30px;
+    position: relative;
+    animation: aparecer 0.3s ease;
+}
+
+.detalle-img {
+    width: 250px;
+    border-radius: 10px;
+}
+
+.detalle-info {
+    flex: 1;
+}
+
+.detalle-info h1 {
+    margin-bottom: 15px;
+    font-size: 26px;
+}
+
+.detalle-info p {
+    color: #ccc;
+    line-height: 1.6;
+}
+
+.cerrar {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.movies-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 220px);
+    justify-content: center;  
+    gap: 30px;
+    width: 100%;
+    margin: 0 auto 50px auto;
+}
+
+@keyframes aparecer {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
 }

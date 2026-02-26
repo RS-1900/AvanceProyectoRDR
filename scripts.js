@@ -178,5 +178,97 @@ gestor.contenidos.forEach((elemento,index) => {
     contenedor.appendChild(tarjeta);
 })
 
+const movies = [
+    { 
+        title: "Acción 1", 
+        genre: "action",
+        image: "./assets/img/images (1).jpg",
+        synopsis: "Una explosiva misión donde el héroe debe salvar la ciudad."
+    },
+    { 
+        title: "Comedia 1", 
+        genre: "comedy",
+        image: "assets/img/image.webp",
+        synopsis: "Una historia llena de humor y situaciones inesperadas."
+    },
+    { 
+        title: "Drama 1", 
+        genre: "drama",
+        image: "assets/img/famous-memes-as-posters-for-disney-pixar-movies-v0-ip2hni6h3lhc1.jpg",
+        synopsis: "Un drama profundo sobre decisiones difíciles."
+    },
+    { 
+        title: "Acción 2", 
+        genre: "action",
+        image: "assets/img/images.jpg",
+        synopsis: "Un ex-agente vuelve para una última misión."
+    },
+];
 
+const moviesContainer = document.getElementById('movies');
+const filterBtns = document.querySelectorAll('.filter-btn');
 
+function displayMovies(genre = 'all') {
+
+    moviesContainer.innerHTML = '';
+
+    const filteredMovies = genre === 'all'
+        ? movies
+        : movies.filter(m => m.genre === genre);
+
+    filteredMovies.forEach((movie, index) => {
+
+        const card = document.createElement('div');
+        card.className = 'movie-card';
+
+        card.innerHTML = `
+            <img src="${movie.image}" alt="${movie.title}">
+            <h3>${movie.title}</h3>
+        `;
+
+        card.addEventListener("click", () => {
+            mostrarDetalleMovies(index);
+        });
+
+        moviesContainer.appendChild(card);
+    });
+}
+
+function mostrarDetalleMovies(index){
+
+    const movie = movies[index];
+
+    overlay.innerHTML = `
+        <div class="detalle-contenido">
+            <button class="cerrar">X</button>
+            <img src="${movie.image}" class="detalle-img">
+            <div class="detalle-info">
+                <h1>${movie.title}</h1>
+                <p>${movie.synopsis}</p>
+            </div>
+        </div>
+    `;
+
+    overlay.classList.add("activo");
+    document.body.style.overflow = "hidden";
+
+    overlay.querySelector(".cerrar").onclick = cerrarDetalle;
+}
+
+function cerrarDetalle(){
+    overlay.classList.remove("activo");
+    document.body.style.overflow = "auto";
+}
+
+filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+
+        document.querySelector('.filter-btn.active')
+            ?.classList.remove('active');
+
+        btn.classList.add('active');
+        displayMovies(btn.dataset.genre);
+    });
+});
+
+displayMovies();
