@@ -46,22 +46,32 @@ if (registroForm) {
     registroForm.addEventListener("submit", function (e) {
         e.preventDefault();
 
+        const correo = document.querySelector(".correo").value;        
         const username = document.querySelector(".username").value;
         const password = document.querySelector(".password").value;
 
         // Obtener usuarios guardados o array vacío
         let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+        let correos = JSON.parse(localStorage.getItem("correos")) || [];
 
         // Verificar si el usuario ya existe
         const existe = usuarios.some(user => user.username === username);
+        // Verificar si el correo ya existe
+        const existe2 = correos.some(email => email.correo === correo);        
 
         if (existe) {
             alert("El usuario ya existe");
             return;
         }
 
+        if (existe2) {
+            alert("El correo no es valido");
+            return;
+        }
+
+
         // Guardar nuevo usuario
-        usuarios.push({ username, password });
+        usuarios.push({ username, password, correo });
         localStorage.setItem("usuarios", JSON.stringify(usuarios));
 
         alert("Usuario creado correctamente");
@@ -78,6 +88,7 @@ if (loginForm) {
     loginForm.addEventListener("submit", function (e) {
         e.preventDefault();
 
+        const correo = document.querySelector(".correo").value;        
         const username = document.querySelector(".username").value;
         const password = document.querySelector(".password").value;
 
@@ -85,7 +96,7 @@ if (loginForm) {
 
         // Buscar usuario
         const usuarioValido = usuarios.find(
-            user => user.username === username && user.password === password
+            user => user.username === username && user.password === password && user.correo
         );
 
         if (usuarioValido) {
