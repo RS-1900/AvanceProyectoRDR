@@ -104,7 +104,7 @@ if (loginForm) {
             localStorage.setItem("usuarioActivo", usuarioValido.username)
             window.location.href = "paginaprincipal.html";
         } else {
-            alert("Usuario o contraseña incorrectos");
+            alert("Usuario, contraseña o correo incorrectos");
         }
     });
 }
