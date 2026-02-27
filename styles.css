@@ -207,20 +207,20 @@ nav div a:first-child {
 
 #contenedor-catalogo {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 20px;
 }
 
-
 #contenedor-catalogo {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 20px;
 }
 
 .card {
   width: 100%;
-  height: 300px;          
+  max-width: 220px;        
+  height: 300px;
   background: #111;
   border-radius: 10px;
   cursor: pointer;
@@ -229,15 +229,11 @@ nav div a:first-child {
 
 .card:hover {
   transform: scale(1.06);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.65);
+  box-shadow: 0 12px 12px rgba(0,0,0,0.65);
   z-index: 2;
 }
 
-
 /*CSS PARA EL INICIO DE SESION Y REGISTRO DE USUARIO*/
-
-
-
 
 /*index.html*/
 
@@ -374,18 +370,6 @@ nav div a:first-child {
 .login-btn:hover {
   background-color: rgb(23, 107, 232);
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 /*CREAR USUARIO CSS*/
 .crearUsr-btn {
@@ -865,116 +849,102 @@ header.black-bg{
     background: rgb(4, 44, 226);
 }
 
-/* GRID CENTRADO*/
-
-#movies {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, 220px);
-    justify-content: center;
-    gap: 30px;
-    width: 100%;
-    max-width: 1200px;
-}
-
-.movie-card {
-    background: #111;
-    padding: 15px;
-    border-radius: 12px;
-    text-align: center;
-    cursor: pointer;
-    transition: 0.3s ease;
-}
-
-.movie-card:hover {
-    transform: scale(1.05);
-}
-
-.movie-card img {
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
-    border-radius: 10px;
-    margin-bottom: 15px;
-}
-
-.movie-card h3 {
-    font-size: 18px;
-}
-
-/* OVERLAY                  */
-
 #detalle-overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.85);
-    display: none;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 999;
 }
 
 #detalle-overlay.activo {
-    display: flex;
+  opacity: 1;
+  pointer-events: all;
 }
 
 .detalle-contenido {
-    background: #111;
-    width: 80%;
-    max-width: 900px;
-    border-radius: 15px;
-    padding: 30px;
-    display: flex;
-    gap: 30px;
-    position: relative;
-    animation: aparecer 0.3s ease;
+  background: #1c1c1c;
+  width: 90%;
+  max-width: 800px;
+  padding: 30px;
+  border-radius: 16px;
+  position: relative;
+  animation: fadeIn 0.3s ease-in-out;
+  overflow-y: auto;
+  max-height: 90vh;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
 }
 
-.detalle-img {
-    width: 250px;
-    border-radius: 10px;
+.dettalle-img {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 20px;
 }
 
-.detalle-info {
-    flex: 1;
+.detalle-contenido h1 {
+  font-size: 28px;
+  margin-bottom: 10px;
 }
 
-.detalle-info h1 {
-    margin-bottom: 15px;
-    font-size: 26px;
+.detalle-contenido p {
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  color: #ccc;
 }
 
-.detalle-info p {
-    color: #ccc;
-    line-height: 1.6;
+.detalle-contenido h3 {
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.detalle-contenido ul {
+  list-style: none;
+}
+
+.detalle-contenido li {
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 14px;
 }
 
 .cerrar {
-    position: absolute;
-    top: 15px;
-    right: 20px;
-    background: none;
-    border: none;
-    color: white;
-    font-size: 22px;
-    cursor: pointer;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: #091fe5;
+  border: none;
+  color: white;
+  font-size: 14px;
+  padding: 6px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
 }
 
-.movies-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, 220px);
-    justify-content: center;  
-    gap: 30px;
-    width: 100%;
-    margin: 0 auto 50px auto;
+.cerrar:hover {
+  background: #0d51e4;
+  transform: scale(1.05);
 }
 
-@keyframes aparecer {
-    from {
-        transform: scale(0.8);
-        opacity: 0;
-    }
-    to {
-        transform: scale(1);
-        opacity: 1;
-    }
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }

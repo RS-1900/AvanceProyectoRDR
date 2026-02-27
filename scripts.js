@@ -37,8 +37,6 @@ class gestorDeContenido {
     }
 }
 
-/************ */
-
 // para registrarse
 const registroForm = document.getElementById("registroForm");
 
@@ -127,18 +125,14 @@ if (logoutBtn) {
 function myFunction() {
     window.location.href = "paginaprincipal.html";
 }
-
-
-
-
-
-
+  
 //Funciones de overlay
 function mostrarDetalle(index){
     const contenido = gestor.contenidos[index];
 
-    overlay.innerHTML = `
-        <button class = "cerrar">X</button>
+overlay.innerHTML = `
+    <div class="detalle-contenido">
+        <button class="cerrar">X</button>
         <img src="${contenido.miniatura}" class="dettalle-img">
         <h1>${contenido.titulo}</h1>
         <p>${contenido.descripcion}</p>
@@ -149,11 +143,12 @@ function mostrarDetalle(index){
             contenido.capitulos.length
             ? contenido.capitulos.map(c => 
                 `<li>${c.titulo} - ${c.duracion} min</li>`
-                ).join('')
+              ).join('')
             : '<li>No Chapters</li>'
         }
         </ul>
-    `;
+    </div>
+`;
     overlay.classList.add("activo");
     document.body.style.overflow = "hidden";
 
@@ -170,12 +165,19 @@ const gestor = new gestorDeContenido();
 let contenedor = document.getElementById("contenedor-catalogo");
 
 const lorem = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam mollitia doloremque molestias saepe temporibus, autem ipsa impedit natus dolorem. Minus expedita assumenda deleniti ea aliquid laudantium quas porro voluptas earum?";
-gestor.agregarContenido("ej1",lorem,"./assets/img/imagen-1.webp");
-gestor.agregarContenido("ej2",lorem,"./assets/img/imagen-2.webp");
-gestor.agregarContenido("ej3",lorem,"./assets/img/imagen-3.webp");
-gestor.agregarContenido("ej4",lorem,"./assets/img/imagen-4.webp");
-gestor.agregarContenido("ej5",lorem,"./assets/img/imagen-5.webp");
-gestor.agregarContenido("ej6",lorem,"./assets/img/imagen-6.webp");
+gestor.agregarContenido("ej1",lorem,"./assets/img/poster-matrix.jpg");
+gestor.agregarContenido("ej2",lorem,"./assets/img/tumblr_inline_nsx1hym5881t35chj_1280.jpg");
+gestor.agregarContenido("ej3",lorem,"./assets/img/81az0oR6izL._AC_UF894,1000_QL80_.jpg");
+gestor.agregarContenido("ej4",lorem,"./assets/img/primer-poster-de-la-pelicula-de-marvel-thor-el-mundo-oscuro-original.jpg");
+gestor.agregarContenido("ej5",lorem,"./assets/img/the-amazing-spider-man-2012-movie-posters-v0-t70eiq3n4a691.webp");
+gestor.agregarContenido("ej6",lorem,"./assets/img/images (1).jpg");
+gestor.agregarContenido("ej7",lorem,"./assets/img/famous-memes-as-posters-for-disney-pixar-movies-v0-ip2hni6h3lhc1.jpg");
+gestor.agregarContenido("ej8",lorem,"./assets/img/movie-covers-v0-vgewq8iul2de1.webp");
+gestor.agregarContenido("ej8",lorem,"./assets/img/Portada_CINE-DE-TERROR-NIÑOS_JPG-scaled.jpg");
+gestor.agregarContenido("ej8",lorem,"./assets/img/pacific_64v9.jpg");
+gestor.agregarContenido("ej8",lorem,"./assets/img/unnamed.webp");
+gestor.agregarContenido("ej8",lorem,"./assets/img/44a007cc9480c7e3c02f8b2b4c4978e3.jpg");
+gestor.agregarContenido("ej8",lorem,"./assets/img/image.webp");
 
 gestor.contenidos.forEach((elemento,index) => {
     let tarjeta = document.createElement('img');
@@ -188,98 +190,3 @@ gestor.contenidos.forEach((elemento,index) => {
 
     contenedor.appendChild(tarjeta);
 })
-
-const movies = [
-    { 
-        title: "Acción 1", 
-        genre: "action",
-        image: "./assets/img/images (1).jpg",
-        synopsis: "Una explosiva misión donde el héroe debe salvar la ciudad."
-    },
-    { 
-        title: "Comedia 1", 
-        genre: "comedy",
-        image: "assets/img/image.webp",
-        synopsis: "Una historia llena de humor y situaciones inesperadas."
-    },
-    { 
-        title: "Drama 1", 
-        genre: "drama",
-        image: "assets/img/famous-memes-as-posters-for-disney-pixar-movies-v0-ip2hni6h3lhc1.jpg",
-        synopsis: "Un drama profundo sobre decisiones difíciles."
-    },
-    { 
-        title: "Acción 2", 
-        genre: "action",
-        image: "assets/img/images.jpg",
-        synopsis: "Un ex-agente vuelve para una última misión."
-    },
-];
-
-const moviesContainer = document.getElementById('movies');
-const filterBtns = document.querySelectorAll('.filter-btn');
-
-function displayMovies(genre = 'all') {
-
-    moviesContainer.innerHTML = '';
-
-    const filteredMovies = genre === 'all'
-        ? movies
-        : movies.filter(m => m.genre === genre);
-
-    filteredMovies.forEach((movie, index) => {
-
-        const card = document.createElement('div');
-        card.className = 'movie-card';
-
-        card.innerHTML = `
-            <img src="${movie.image}" alt="${movie.title}">
-            <h3>${movie.title}</h3>
-        `;
-
-        card.addEventListener("click", () => {
-            mostrarDetalleMovies(index);
-        });
-
-        moviesContainer.appendChild(card);
-    });
-}
-
-function mostrarDetalleMovies(index){
-
-    const movie = movies[index];
-
-    overlay.innerHTML = `
-        <div class="detalle-contenido">
-            <button class="cerrar">X</button>
-            <img src="${movie.image}" class="detalle-img">
-            <div class="detalle-info">
-                <h1>${movie.title}</h1>
-                <p>${movie.synopsis}</p>
-            </div>
-        </div>
-    `;
-
-    overlay.classList.add("activo");
-    document.body.style.overflow = "hidden";
-
-    overlay.querySelector(".cerrar").onclick = cerrarDetalle;
-}
-
-function cerrarDetalle(){
-    overlay.classList.remove("activo");
-    document.body.style.overflow = "auto";
-}
-
-filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-
-        document.querySelector('.filter-btn.active')
-            ?.classList.remove('active');
-
-        btn.classList.add('active');
-        displayMovies(btn.dataset.genre);
-    });
-});
-
-displayMovies();
