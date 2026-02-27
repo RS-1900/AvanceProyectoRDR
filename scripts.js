@@ -87,14 +87,13 @@ if (loginForm) {
         e.preventDefault();
 
         const correo = document.querySelector(".correo").value;        
-        const username = document.querySelector(".username").value;
         const password = document.querySelector(".password").value;
 
         let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
 
         // Buscar usuario
         const usuarioValido = usuarios.find(
-            user => user.username === username && user.password === password && user.correo
+            user => user.password === password && user.correo
         );
 
         if (usuarioValido) {
@@ -102,7 +101,7 @@ if (loginForm) {
             localStorage.setItem("usuarioActivo", usuarioValido.username)
             window.location.href = "paginaprincipal.html";
         } else {
-            alert("Usuario, contraseña o correo incorrectos");
+            alert("Contraseña o correo incorrectos");
         }
     });
 }
