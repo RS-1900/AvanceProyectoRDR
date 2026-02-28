@@ -1,3 +1,49 @@
+
+const btnPagar = document.getElementById("btnPagar");
+
+if (btnPagar) {
+    btnPagar.addEventListener("click", simularPago);
+}
+
+function simularPago() {
+
+    const numero = document.getElementById("numero").value.trim();
+    const titular = document.getElementById("titular").value.trim();
+    const fecha = document.getElementById("fecha").value;
+    const cvv = document.getElementById("cvv").value.trim();
+    const resultado = document.getElementById("resultado");
+
+    if (numero.length !== 16 || isNaN(numero)) {
+        resultado.textContent = "El número de tarjeta no es válido.";
+        resultado.style.color = "red";
+        return;
+    }
+
+    if (titular.length < 3) {
+        resultado.textContent = "El nombre del titular es demasiado corto.";
+        resultado.style.color = "red";
+        return;
+    }
+
+    if (!fecha) {
+        resultado.textContent = "Debes seleccionar una fecha de expiración.";
+        resultado.style.color = "red";
+        return;
+    }
+
+    if (cvv.length !== 3 || isNaN(cvv)) {
+        resultado.textContent = "El CVV debe tener 3 dígitos.";
+        resultado.style.color = "red";
+        return;
+    }
+
+    resultado.textContent = "Pago procesado con éxito";
+    resultado.style.color = "green";
+
+    setTimeout(() => {
+        window.location.href = "paginaprincipal.html";
+    }, 1500);
+}
 //Clases
 class capitulo {
     constructor(titulo,descripcion,miniatura){
@@ -157,8 +203,10 @@ inputBuscador.addEventListener("input", (e) => {
 
 
 function myFunction() {
-    window.location.href = "paginaprincipal.html";
+    window.location.href = "metodospagos.html";
 }
+
+
   
 //Funciones de overlay
 function mostrarDetalle(index){
@@ -224,3 +272,4 @@ gestor.contenidos.forEach((elemento,index) => {
 
     contenedor.appendChild(tarjeta);
 })
+

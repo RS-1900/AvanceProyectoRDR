@@ -695,3 +695,85 @@ nav div a:first-child {
     text-align: center;
     margin-top: 50px;
 }
+
+#pagina-pago {
+    background: #ffffff !important;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;   
+    padding-top: 40px;         
+    margin: 0;
+    padding: 0;
+}
+/* Contenedor */
+#pago-simulacion {
+    width: 380px;
+    padding: 25px;
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    font-family: Arial, sans-serif;
+}
+
+/* Nuevo Título */
+#pago-simulacion h1 {
+    font-size: 24px;
+    font-weight: 700;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 25px;
+    color: #222;
+    letter-spacing: -0.5px;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+/* Inputs */
+#pago-simulacion label {
+    display: block;
+    margin-top: 12px;
+    font-weight: 600;
+    font-size: 15px;
+    color: #333;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+#pago-simulacion input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 6px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+/* Botón */
+#pago-simulacion button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 25px;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+#pago-simulacion button:hover {
+    background: #43a047;
+}
+
+/* Texto del resultado */
+#resultado {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+#pago-simulacion input[type="month"] {
+    font-family: monospace;    
+    letter-spacing: 1px;
+}
