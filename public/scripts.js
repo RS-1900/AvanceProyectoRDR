@@ -100,7 +100,6 @@ if (registroForm) {
 
         // Verificar si el usuario ya existe
         const existe = usuarios.some(user => user.username === username);
-        // Verificar si el correo ya existe
         const existe2 = correos.some(email => email.correo === correo);        
 
         if (existe) {
@@ -113,45 +112,38 @@ if (registroForm) {
             return;
         }
 
-
-        // Guardar nuevo usuario
         usuarios.push({ username, password, correo });
         localStorage.setItem("usuarios", JSON.stringify(usuarios));
 
         alert("Usuario creado correctamente");
-
-        // Redirigir a pagos.html despues de crear cuenta
         window.location.href = "pagos.html";
     });
 }
+
 
 // iniciar sesion
 const loginForm = document.getElementById("loginForm");
 
 if (loginForm) {
-    loginForm.addEventListener("submit", function (e) {
-        e.preventDefault();
+  loginForm.addEventListener("submit", function (e) {
+    e.preventDefault();
 
-        const correo = document.querySelector(".correo").value;        
-        const password = document.querySelector(".password").value;
+    const correo = document.querySelector(".correo").value;
+    const password = document.querySelector(".password").value;
 
-        let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+    let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
 
-        // Buscar usuario
-        const usuarioValido = usuarios.find(
-            user => user.password === password && user.correo
-        );
+    const encontrado = usuarios.find(user => user.correo === correo && user.password === password);
 
-        if (usuarioValido) {
-            alert("Inicio de sesión correcto");
-            localStorage.setItem("usuarioActivo", usuarioValido.username)
-            window.location.href = "paginaprincipal.html";
-        } else {
-            alert("Contraseña o correo incorrectos");
-        }
-    });
+    if (encontrado) {
+        localStorage.setItem("usuarioActivo", encontrado.username);
+        alert("Inicio de sesión exitoso");
+        window.location.href = "paginaprincipal.html";
+    } else {
+        alert("Credenciales incorrectas");
+    }
+  });
 }
-
 
 //pa cerrar la sesion
 const logoutBtn = document.querySelector(".logout-btn");
@@ -165,7 +157,6 @@ if (logoutBtn) {
         window.location.href = "index.html";
     });
 }
-
 
 ////BUSQUEDAAAAAAAA
 const inputBuscador = document.getElementById("buscador");
@@ -206,8 +197,6 @@ function myFunction() {
     window.location.href = "metodospagos.html";
 }
 
-
-  
 //Funciones de overlay
 function mostrarDetalle(index){
     const contenido = gestor.contenidos[index];
@@ -247,7 +236,7 @@ const gestor = new gestorDeContenido();
 let contenedor2 = document.getElementById("contenedor-catalogo");
 
 const lorem = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam mollitia doloremque molestias saepe temporibus, autem ipsa impedit natus dolorem. Minus expedita assumenda deleniti ea aliquid laudantium quas porro voluptas earum?";
-gestor.agregarContenido("ej1",lorem,"./assets/img/poster-matrix.jpg");
+gestor.agregarContenido("ej1",lorem,"https://drive.google.com/drive/u/7/folders/1qhgrqAiz0ruv2YE05cBf3mB9xESOAQwf");
 gestor.agregarContenido("ej2",lorem,"./assets/img/tumblr_inline_nsx1hym5881t35chj_1280.jpg");
 gestor.agregarContenido("ej3",lorem,"./assets/img/81az0oR6izL._AC_UF894,1000_QL80_.jpg");
 gestor.agregarContenido("ej4",lorem,"./assets/img/primer-poster-de-la-pelicula-de-marvel-thor-el-mundo-oscuro-original.jpg");
@@ -323,26 +312,4 @@ function filtrarPeliculas() {
     );
 
     mostrarPeliculas(filtrados);
-}
-
-
-inputBuscador.addEventListener('input', filtrarPeliculas);
-
-//  click en la lupa
-btnBuscar.addEventListener('click', filtrarPeliculas);
-
-mostrarPeliculas(gestor.contenidos);
-
-function toggleFavorito(pelicula) {
-    // lee la lista específica del usuario
-    let favoritos = JSON.parse(localStorage.getItem(keyFavoritos)) || [];
-    const index = favoritos.findIndex(fav => fav.titulo === pelicula.titulo);
-
-    if (index === -1) {
-        favoritos.push(pelicula);
-    } else {
-        favoritos.splice(index, 1);
-    }
-    
-    localStorage.setItem(keyFavoritos, JSON.stringify(favoritos));
 }
