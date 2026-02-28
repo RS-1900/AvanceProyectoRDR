@@ -261,15 +261,49 @@ gestor.agregarContenido("ej8",lorem,"./assets/img/unnamed.webp");
 gestor.agregarContenido("ej8",lorem,"./assets/img/44a007cc9480c7e3c02f8b2b4c4978e3.jpg");
 gestor.agregarContenido("ej8",lorem,"./assets/img/image.webp");
 
-gestor.contenidos.forEach((elemento,index) => {
+//favoritos lista
+gestor.contenidos.forEach((elemento, index) => {
+    let contenedorTarjeta = document.createElement('div');
+    contenedorTarjeta.classList.add('card-container');
+
     let tarjeta = document.createElement('img');
-    tarjeta.setAttribute('class', 'card');
+    tarjeta.className = 'card';
     tarjeta.src = elemento.miniatura;
     
     tarjeta.addEventListener("click", ()=> {
         mostrarDetalle(index);
+
     })
 
-    contenedor.appendChild(tarjeta);
-})
+    let iconoFav = document.createElement('span');
+    iconoFav.innerHTML = '❤';
+    iconoFav.classList.add('btn-favorito');
+    
+    let favoritos = JSON.parse(localStorage.getItem("misFavoritos")) || [];
+    if (favoritos.some(fav => fav.titulo === elemento.titulo)) {
+        iconoFav.classList.add('active');
+    }
 
+    iconoFav.addEventListener("click", (e) => {
+        e.stopPropagation();
+        toggleFavorito(elemento);
+        iconoFav.classList.toggle('active');
+    });
+
+    contenedorTarjeta.appendChild(tarjeta);
+    contenedorTarjeta.appendChild(iconoFav);
+    contenedor.appendChild(contenedorTarjeta);
+});
+
+function toggleFavorito(pelicula) {
+    let favoritos = JSON.parse(localStorage.getItem("misFavoritos")) || [];
+    // busca por titulo
+    const index = favoritos.findIndex(fav => fav.titulo === pelicula.titulo);
+
+    if (index === -1) {
+        favoritos.push(pelicula);
+    } else {
+        favoritos.splice(index, 1);
+    }
+    localStorage.setItem("misFavoritos", JSON.stringify(favoritos));
+}

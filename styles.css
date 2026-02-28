@@ -777,3 +777,27 @@ nav div a:first-child {
     font-family: monospace;    
     letter-spacing: 1px;
 }
+
+.card-container {
+    position: relative;
+    display: inline-block;
+}
+
+.btn-favorito {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+    color: white;
+    text-shadow: 0 0 5px black;
+    transition: transform 0.2s;
+}
+
+.btn-favorito.active {
+    color: #ff4b2b;
+}
+
+.btn-favorito:hover {
+    transform: scale(1.2);
+}

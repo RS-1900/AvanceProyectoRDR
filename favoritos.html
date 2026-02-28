@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Megumovies</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <header class="header">
+<nav class="nav">
+  <div class="left-cont">
+    <img src="assets/img/meowgumi.png" class="logo" alt="Megumovies">
+  </div>
+  
+  <ul class="main-nav">
+    <li class="nav-item active"><a href="paginaprincipal.html">Inicio</a></li>
+    <li class="nav-item"><a href="series.html">Series</a></li>
+    <li class="nav-item"><a href="favoritos.html">Mi Lista</a></li>
+    
+  </ul>
+
+    <div class="right-cont">
+    <div class="search-container">
+        <input type="text" id="buscador" placeholder="Buscar">
+        <button id="btn-buscar">🔍</button>
+    </div>
+    <button class="logout-btn">Cerrar sesión</button>
+
+</div>  
+</nav>
+  </header>
+  <main id="contenedor-principal">
+    <h2 class="titulo-seccion">Mi lista de favoritos</h2>
+    <div id="contenedor-favoritos" class="catalogo-grid"></div>
+  </main>
+
+  <script src="scripts.js"></script>
+<script>
+  function cargarFavoritos() {
+      const contenedor = document.getElementById("contenedor-favoritos");
+      let favoritos = JSON.parse(localStorage.getItem("misFavoritos")) || [];
+      
+      contenedor.innerHTML = "";
+      
+      if (favoritos.length === 0) {
+          contenedor.innerHTML = "<p style='color:white;'>Tu lista está vacía</p>";
+          return;
+      }
+
+      favoritos.forEach((peli) => {
+          let card = document.createElement('div');
+          card.className = 'card-container';
+          card.innerHTML = `
+              <img src="${peli.miniatura}" class="card">
+              <span class="btn-favorito active" onclick="eliminarDeFavs('${peli.titulo}')">❌</span>
+          `;
+          contenedor.appendChild(card);
+      });
+  }
+
+  function eliminarDeFavs(titulo) {
+      let favoritos = JSON.parse(localStorage.getItem("misFavoritos")) || [];
+      favoritos = favoritos.filter(peli => peli.titulo !== titulo);
+      localStorage.setItem("misFavoritos", JSON.stringify(favoritos));
+      cargarFavoritos();
+  }
+
+  // Ejecutar al cargar la página
+  document.addEventListener("DOMContentLoaded", cargarFavoritos);
+</script>
+</body>
+</html>
+</body>
+</html>
