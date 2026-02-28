@@ -7,6 +7,7 @@
     <title>Document</title>
 </head>
 <body>
+
 <header class="header">
     <nav class="nav">
       <div class="left-cont">
@@ -16,49 +17,32 @@
         <a href="Index.html">Iniciar Sesión</a>
       </div>
     </nav>
-  </header>
+</header>
 
-    <div class="contenedorRGST">
+<div class="contenedorRGST">
+    
     <h4>Rellene los campos para crear un usuario</h4>
 
-    <br>  
-
-
     <form id="registroForm">
-        <label>
-              <h1>Correo electronico:</h1>
-          </label>
-          <input type="text" placeholder="Ingresa correo electrónico" class="correo" required>
 
-        <br>
-        <br>
+        <label class="label">Correo electrónico:</label>
+        <input type="text" placeholder="Ingresa correo electrónico" class="correo" required>
 
-        <label>
-            <h1>Nombre de usuario:</h1>
-        </label>
+        <label class="label">Nombre de usuario:</label>
         <input type="text" placeholder="Ingresa usuario" class="username" required>
 
-        <br>
-        <br>
-
-        <label>
-            <h1>Contraseña:</h1>
-        </label>
+        <label class="label">Contraseña:</label>
         <input type="password" placeholder="Ingresa contraseña" class="password" required>
 
-        <br><br>
-
         <button type="submit" class="crearUsr-btn">Crear cuenta</button>
+
     </form>
-    
-    <br>
-    <br>
-    <br>
 
-    <br>
-    <p><a href="Index.html">¿Ya tienes una cuenta? Inicia sesión aquí</a></p>
+    <p class="login-link">
+        <a href="Index.html">¿Ya tienes una cuenta? Inicia sesión aquí</a>
+    </p>
+
 </div>
-
 
 <script src="scripts.js"></script>
 
