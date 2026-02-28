@@ -255,11 +255,13 @@ gestor.agregarContenido("ej5",lorem,"./assets/img/the-amazing-spider-man-2012-mo
 gestor.agregarContenido("ej6",lorem,"./assets/img/images (1).jpg");
 gestor.agregarContenido("ej7",lorem,"./assets/img/famous-memes-as-posters-for-disney-pixar-movies-v0-ip2hni6h3lhc1.jpg");
 gestor.agregarContenido("ej8",lorem,"./assets/img/movie-covers-v0-vgewq8iul2de1.webp");
-gestor.agregarContenido("ej8",lorem,"./assets/img/Portada_CINE-DE-TERROR-NIÑOS_JPG-scaled.jpg");
-gestor.agregarContenido("ej8",lorem,"./assets/img/pacific_64v9.jpg");
-gestor.agregarContenido("ej8",lorem,"./assets/img/unnamed.webp");
-gestor.agregarContenido("ej8",lorem,"./assets/img/44a007cc9480c7e3c02f8b2b4c4978e3.jpg");
-gestor.agregarContenido("ej8",lorem,"./assets/img/image.webp");
+gestor.agregarContenido("ej9",lorem,"./assets/img/Portada_CINE-DE-TERROR-NIÑOS_JPG-scaled.jpg");
+gestor.agregarContenido("ej10",lorem,"./assets/img/pacific_64v9.jpg");
+gestor.agregarContenido("ej11",lorem,"./assets/img/unnamed.webp");
+gestor.agregarContenido("ej12",lorem,"./assets/img/44a007cc9480c7e3c02f8b2b4c4978e3.jpg");
+gestor.agregarContenido("ej13",lorem,"./assets/img/P_Iron_Man_2_5.webp"); 
+gestor.agregarContenido("ej14",lorem,"./assets/img/images.jpg");
+gestor.agregarContenido("ej15",lorem,"./assets/img/P_shrek_13.jpg");
 
 //favoritossssssss
 const contenedor = document.getElementById('contenedor-catalogo');
