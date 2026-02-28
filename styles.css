@@ -412,20 +412,18 @@ nav div a:first-child {
   }
 }
 
-/*  DETALLE MODAL */
 #detalle-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.85);
-  backdrop-filter: blur(8px);
+  background: #1c1c1c; 
   display: flex;
-  justify-content: center;
-  align-items: center;
   opacity: 0;
   pointer-events: none;
   transition: 0.3s;
-  z-index: 999;
+  z-index: 2000; 
+  overflow-y: auto; 
 }
+
 #detalle-overlay.activo {
   opacity: 1;
   pointer-events: all;
@@ -433,35 +431,51 @@ nav div a:first-child {
 
 .detalle-contenido {
   background: #1c1c1c;
-  width: 90%;
-  max-width: 800px;
-  padding: 30px;
-  border-radius: 16px;
+  width: 100%;
+  min-height: 100vh; 
+  padding: 60px 10% 40px; 
   position: relative;
-  animation: fadeIn 0.3s ease-in-out;
-  overflow-y: auto;
-  max-height: 90vh;
+  box-sizing: border-box;
+  animation: slideIn 0.4s ease-out; 
 }
 
 .detalle-contenido img {
-  width: 100%;
+  display: block;
+  width: auto; 
+  max-width: 100%; 
+  
+  height: auto; 
+  max-height: 70vh; 
+  object-fit: contain; 
+  
+  margin: 0 auto 30px;
   border-radius: 12px;
-  margin-bottom: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
 .cerrar {
-  position: absolute;
-  top: 15px;
-  right: 15px;
+  position: fixed; 
+  top: 25px;
+  right: 25px;
   background: #091fe5;
   border: none;
   color: white;
-  padding: 6px 12px;
-  border-radius: 8px;
+  padding: 12px 20px;
+  border-radius: 50px;
+  font-weight: bold;
   cursor: pointer;
+  z-index: 2001;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
 }
+
 .cerrar:hover {
   background: #0d51e4;
+  transform: scale(1.05);
+}
+
+@keyframes slideIn {
+  from { transform: translateY(50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
 }
 
 .logout-btn {

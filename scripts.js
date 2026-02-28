@@ -244,7 +244,7 @@ function cerrarDetalle(){
 //Codigo de la página
 const overlay = document.getElementById("detalle-overlay")
 const gestor = new gestorDeContenido();
-let contenedor = document.getElementById("contenedor-catalogo");
+let contenedor2 = document.getElementById("contenedor-catalogo");
 
 const lorem = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam mollitia doloremque molestias saepe temporibus, autem ipsa impedit natus dolorem. Minus expedita assumenda deleniti ea aliquid laudantium quas porro voluptas earum?";
 gestor.agregarContenido("ej1",lorem,"./assets/img/poster-matrix.jpg");
@@ -261,43 +261,79 @@ gestor.agregarContenido("ej8",lorem,"./assets/img/unnamed.webp");
 gestor.agregarContenido("ej8",lorem,"./assets/img/44a007cc9480c7e3c02f8b2b4c4978e3.jpg");
 gestor.agregarContenido("ej8",lorem,"./assets/img/image.webp");
 
-//favoritos lista
-gestor.contenidos.forEach((elemento, index) => {
-    let contenedorTarjeta = document.createElement('div');
-    contenedorTarjeta.classList.add('card-container');
+//favoritossssssss
+const contenedor = document.getElementById('contenedor-catalogo');
+const Buscador = document.getElementById('buscador');
+const btnBuscar = document.getElementById('btn-buscar');
 
-    let tarjeta = document.createElement('img');
-    tarjeta.className = 'card';
-    tarjeta.src = elemento.miniatura;
-    
-    tarjeta.addEventListener("click", ()=> {
-        mostrarDetalle(index);
 
-    })
+const usuarioActual = localStorage.getItem("usuarioActivo") || "invitado";
+const keyFavoritos = `favoritos_${usuarioActual}`;
 
-    let iconoFav = document.createElement('span');
-    iconoFav.innerHTML = '❤';
-    iconoFav.classList.add('btn-favorito');
-    
-    let favoritos = JSON.parse(localStorage.getItem("misFavoritos")) || [];
-    if (favoritos.some(fav => fav.titulo === elemento.titulo)) {
-        iconoFav.classList.add('active');
-    }
+if (contenedor) {
+    mostrarPeliculas(gestor.contenidos);
+}
 
-    iconoFav.addEventListener("click", (e) => {
-        e.stopPropagation();
-        toggleFavorito(elemento);
-        iconoFav.classList.toggle('active');
+
+// crea las tarjetas con imagen + corazón
+function mostrarPeliculas(lista) {
+    contenedor.innerHTML = "";
+
+    lista.forEach((elemento, index) => {
+        let contenedorTarjeta = document.createElement('div');
+        contenedorTarjeta.classList.add('card-container');
+
+        let tarjeta = document.createElement('img');
+        tarjeta.className = 'card';
+        tarjeta.src = elemento.miniatura;
+        
+        tarjeta.addEventListener("click", () => {
+            mostrarDetalle(index);
+        });
+
+        // crea el corazon
+        let iconoFav = document.createElement('span');
+        iconoFav.innerHTML = '❤';
+        iconoFav.classList.add('btn-favorito');
+        
+        let favoritos = JSON.parse(localStorage.getItem(keyFavoritos)) || [];
+        if (favoritos.some(fav => fav.titulo === elemento.titulo)) {
+            iconoFav.classList.add('active');
+        }
+
+        iconoFav.addEventListener("click", (e) => {
+            e.stopPropagation(); // 
+            toggleFavorito(elemento);
+            iconoFav.classList.toggle('active');
+        });
+
+        contenedorTarjeta.appendChild(tarjeta);
+        contenedorTarjeta.appendChild(iconoFav);
+        contenedor.appendChild(contenedorTarjeta);
     });
+}
 
-    contenedorTarjeta.appendChild(tarjeta);
-    contenedorTarjeta.appendChild(iconoFav);
-    contenedor.appendChild(contenedorTarjeta);
-});
+function filtrarPeliculas() {
+    const texto = inputBuscador.value.toLowerCase();
+    
+    const filtrados = gestor.contenidos.filter(pelicula => 
+        pelicula.titulo.toLowerCase().includes(texto)
+    );
+
+    mostrarPeliculas(filtrados);
+}
+
+
+inputBuscador.addEventListener('input', filtrarPeliculas);
+
+//  click en la lupa
+btnBuscar.addEventListener('click', filtrarPeliculas);
+
+mostrarPeliculas(gestor.contenidos);
 
 function toggleFavorito(pelicula) {
-    let favoritos = JSON.parse(localStorage.getItem("misFavoritos")) || [];
-    // busca por titulo
+    // lee la lista específica del usuario
+    let favoritos = JSON.parse(localStorage.getItem(keyFavoritos)) || [];
     const index = favoritos.findIndex(fav => fav.titulo === pelicula.titulo);
 
     if (index === -1) {
@@ -305,5 +341,6 @@ function toggleFavorito(pelicula) {
     } else {
         favoritos.splice(index, 1);
     }
-    localStorage.setItem("misFavoritos", JSON.stringify(favoritos));
+    
+    localStorage.setItem(keyFavoritos, JSON.stringify(favoritos));
 }
